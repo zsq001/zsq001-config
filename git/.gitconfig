@@ -1,0 +1,9 @@
+[user]
+	name = zsq001
+	email = zsq1750819212@gmail.com
+	name = Shengqian Zou
+[core]
+	filemode = false 
+	gitProxy = /home/zsq001/.gitproxy
+[http]
+	proxy = http://172.17.94.148:10808/
