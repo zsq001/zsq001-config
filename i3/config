@@ -183,7 +183,7 @@ bindsym $mod+p exec "i3lock -i /home/zsq001/.config/i3/lock.png"
 exec —no-startup-id xset dmps 100
 exec --no-startup-id sh ~/.fehbg
 bar {
-	status_command i3status
+	status_command /home/zsq001/.cargo/bin/i3status-rs 
 	tray_padding 4
 	separator_symbol "|"
     position top
@@ -199,3 +199,15 @@ bar {
 		urgent_workspace #2f343a #900000 #ffffff
 	}
 }
+exec --no-startup-id feh --bg-scale /path/to/directory
+exec --no-startup-id xcompmgr &
+exec --no-startup-id sleep .2
+exec_always --no-startup-id compton
+
+bindsym $mod+Print exec \
+    import -window $( \
+        i3-msg -t get_tree | \
+        jq 'recurse(.nodes[]) | select(.focused).window' \
+    ) png:- | \
+    xclip -selection clipboard -t image/png
+bindsym $mod+n exec "maim ~/Pictures/sc.png"
